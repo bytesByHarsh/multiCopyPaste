@@ -45,3 +45,13 @@ void CopyPaste::recievedNewTabName(QString newName)
 {
     ui->tabWidget->setTabText(currDoubleClickedTab,newName);
 }
+
+void CopyPaste::on_actionSave_triggered()
+{
+
+}
+
+void CopyPaste::on_actionExit_triggered()
+{
+    QApplication::exit();
+}

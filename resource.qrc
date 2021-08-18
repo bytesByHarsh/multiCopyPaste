@@ -4,5 +4,8 @@
         <file>img/paste.png</file>
         <file>img/clear.png</file>
         <file>img/eraser.png</file>
+        <file>img/exit.png</file>
+        <file>img/open.png</file>
+        <file>img/save.png</file>
     </qresource>
 </RCC>

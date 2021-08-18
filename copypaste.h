@@ -30,6 +30,10 @@ private slots:
 
     void on_tabWidget_tabBarDoubleClicked(int index);
 
+    void on_actionSave_triggered();
+
+    void on_actionExit_triggered();
+
 private:
     Ui::CopyPaste *ui;
     int currDoubleClickedTab;
