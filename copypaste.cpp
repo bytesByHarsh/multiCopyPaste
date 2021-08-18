@@ -10,7 +10,7 @@ CopyPaste::CopyPaste(QWidget *parent)
     ui->setupUi(this);
     this->setWindowTitle("Multi Copy Paste");
     this->setWindowIcon(QIcon(":/img/img/paste.png"));
-    ui->tabWidget->addTab(new TabNew(this), "Defualt");
+    ui->tabWidget->addTab(new TabNew(this), "Default");
 
 
 }
