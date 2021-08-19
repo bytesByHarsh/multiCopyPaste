@@ -53,9 +53,12 @@ void CopyPasteCell::on_copyButton_clicked()
 void CopyPasteCell::on_clearButton_clicked()
 {
     ui->textEdit->clear();
+
 }
 
 void CopyPasteCell::on_deleteButton_clicked()
 {
-    this->close();
+    emit closeThisCell(cellNumber);
+
+//    this->close();
 }

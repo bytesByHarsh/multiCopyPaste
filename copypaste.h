@@ -6,8 +6,10 @@
 #include <QPixmap>
 #include <QMessageBox>
 #include <QClipboard>
+#include <QVector>
 
 #include "newtabdialog.h"
+#include "tabnew.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class CopyPaste; }
@@ -21,6 +23,7 @@ public:
     CopyPaste(QWidget *parent = nullptr);
     ~CopyPaste();
     NewTabDialog *newWindow;
+    QVector<TabNew *> allTabPtr;
 
 
 private slots:

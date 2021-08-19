@@ -1,5 +1,4 @@
 #include "copypaste.h"
-#include "tabnew.h"
 #include "ui_copypaste.h"
 
 
@@ -10,8 +9,10 @@ CopyPaste::CopyPaste(QWidget *parent)
     ui->setupUi(this);
     this->setWindowTitle("Multi Copy Paste");
     this->setWindowIcon(QIcon(":/img/img/paste.png"));
-    ui->tabWidget->addTab(new TabNew(this), "Default");
-
+    TabNew *newTabptr=new TabNew(this);
+    ui->tabWidget->addTab(newTabptr, "Default");
+    newTabptr->setAttribute(Qt::WA_DeleteOnClose,true);
+    allTabPtr.append(newTabptr);
 
 }
 
@@ -23,13 +24,20 @@ CopyPaste::~CopyPaste()
 
 void CopyPaste::on_tabWidget_tabCloseRequested(int index)
 {
+    qDebug()<<"Removing tab of index:"<<index;
     ui->tabWidget->removeTab(index);
+
+    allTabPtr.remove(index);
 }
 
 
 void CopyPaste::on_newTabButton_clicked()
 {
-    ui->tabWidget->addTab(new TabNew(this), QString("Tab %0").arg(ui->tabWidget->count()+1));
+    TabNew *newTabptr=new TabNew(this);
+
+    ui->tabWidget->addTab(newTabptr, QString("Tab %0").arg(ui->tabWidget->count()+1));
+    newTabptr->setAttribute(Qt::WA_DeleteOnClose,true);
+    allTabPtr.append(newTabptr);
 }
 
 void CopyPaste::on_tabWidget_tabBarDoubleClicked(int index)

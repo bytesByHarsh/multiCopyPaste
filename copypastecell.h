@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QClipboard>
+#include <QStatusBar>
 
 namespace Ui {
 class CopyPasteCell;
@@ -15,6 +16,7 @@ class CopyPasteCell : public QWidget
 public:
     explicit CopyPasteCell(QWidget *parent = nullptr);
     ~CopyPasteCell();
+    int cellNumber;
 
 private slots:
     void on_pasteButton_clicked();
@@ -27,6 +29,9 @@ private slots:
 
 private:
     Ui::CopyPasteCell *ui;
+
+signals:
+    void closeThisCell(int);
 
 };
 
