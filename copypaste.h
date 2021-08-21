@@ -7,6 +7,11 @@
 #include <QMessageBox>
 #include <QClipboard>
 #include <QVector>
+#include <QFile>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonParseError>
 
 #include "newtabdialog.h"
 #include "tabnew.h"
@@ -40,6 +45,7 @@ private slots:
 private:
     Ui::CopyPaste *ui;
     int currDoubleClickedTab;
+    bool writeAllData(QJsonObject &json);
 
 public slots:
     void recievedNewTabName(QString);
