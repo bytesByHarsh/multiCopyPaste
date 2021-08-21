@@ -9,6 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    aboutmedialog.cpp \
     copypastecell.cpp \
     main.cpp \
     copypaste.cpp \
@@ -16,12 +17,14 @@ SOURCES += \
     tabnew.cpp
 
 HEADERS += \
+    aboutmedialog.h \
     copypaste.h \
     copypastecell.h \
     newtabdialog.h \
     tabnew.h
 
 FORMS += \
+    aboutmedialog.ui \
     copypaste.ui \
     copypastecell.ui \
     newtabdialog.ui \

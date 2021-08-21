@@ -107,3 +107,10 @@ void CopyPaste::on_actionExit_triggered()
 {
     QApplication::exit();
 }
+
+void CopyPaste::on_actionAbout_triggered()
+{
+    AboutMeDialog aboutMe;
+    aboutMe.show();
+    aboutMe.exec();
+}

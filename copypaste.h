@@ -15,6 +15,7 @@
 
 #include "newtabdialog.h"
 #include "tabnew.h"
+#include "aboutmedialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class CopyPaste; }
@@ -41,6 +42,8 @@ private slots:
     void on_actionSave_triggered();
 
     void on_actionExit_triggered();
+
+    void on_actionAbout_triggered();
 
 private:
     Ui::CopyPaste *ui;
