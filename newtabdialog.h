@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QMessageBox>
 #include <QString>
+#include <QDebug>
 
 namespace Ui {
 class NewTabDialog;
@@ -16,6 +17,8 @@ class NewTabDialog : public QDialog
 public:
     explicit NewTabDialog(QWidget *parent = nullptr);
     ~NewTabDialog();
+    bool eventFilter(QObject *object, QEvent *event);
+    void _handleWhatsThisEntry(QWidget * /*sender*/);
 
 private slots:
     void on_okButton_clicked();
