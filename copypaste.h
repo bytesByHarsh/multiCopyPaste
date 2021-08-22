@@ -12,6 +12,8 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonParseError>
+#include <QFileDialog>
+#include <QDir>
 
 #include "newtabdialog.h"
 #include "tabnew.h"

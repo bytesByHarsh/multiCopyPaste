@@ -153,7 +153,9 @@ void CopyPaste::on_actionAbout_triggered()
 
 void CopyPaste::on_actionLoad_triggered()
 {
-    QFile file("E:/Git/build-multiCopyPaste-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/debug/test.json");
+    QString fileName = QFileDialog::getOpenFileName(this,"Open JSON File",QDir::currentPath());
+//    qDebug()<<fileName;
+    QFile file(fileName);
     if(!file.open(QFile::ReadOnly)){
         qWarning("Couldn't open save file.");
         return;
