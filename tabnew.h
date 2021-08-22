@@ -19,6 +19,7 @@ public:
     ~TabNew();
     QVector<CopyPasteCell *> allCellPtr;
     int cellNumerTotal;
+    void addNewCell(QString cellText="");
 
 private slots:
     void on_addButton_clicked();

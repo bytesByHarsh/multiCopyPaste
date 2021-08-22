@@ -45,10 +45,13 @@ private slots:
 
     void on_actionAbout_triggered();
 
+    void on_actionLoad_triggered();
+
 private:
     Ui::CopyPaste *ui;
     int currDoubleClickedTab;
     bool writeAllData(QJsonObject &json);
+    bool readAllData(const QJsonObject &json);
 
 public slots:
     void recievedNewTabName(QString);

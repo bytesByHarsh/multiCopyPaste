@@ -19,6 +19,7 @@ public:
     ~CopyPasteCell();
     int cellNumber;
     QString getTextData();
+    void setTextData(QString cellText);
 
 private slots:
     void on_pasteButton_clicked();

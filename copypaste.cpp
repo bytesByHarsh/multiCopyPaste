@@ -79,6 +79,46 @@ bool CopyPaste::writeAllData(QJsonObject &json){
     json["Data"] = tabsJSON;
     return true;
 }
+bool CopyPaste::readAllData(const QJsonObject &json)
+{
+    int numTabs;
+    if(json.contains("Total Tabs")){
+        numTabs = json["Total Tabs"].toInt();
+    }
+
+    if(json.contains("Data") && json["Data"].isArray()){
+        QJsonArray tabsJSON = json["Data"].toArray();
+
+        for(int tabIndex=0;tabIndex<tabsJSON.size();tabIndex++){
+            QJsonObject tabDataJSON = tabsJSON[tabIndex].toObject();
+
+            // Create New Tab
+            TabNew *newTabptr=new TabNew(this);
+
+            ui->tabWidget->addTab(newTabptr, tabDataJSON["Tab Name"].toString());
+            newTabptr->setAttribute(Qt::WA_DeleteOnClose,true);
+            allTabPtr.append(newTabptr);
+
+            QJsonArray allCelldData = tabDataJSON["Tab Data"].toArray();
+
+            for (int cellIndex=0;cellIndex<allCelldData.size() ;cellIndex++ ) {
+                QJsonObject cellData = allCelldData[cellIndex].toObject();
+                QString cellText = cellData["Text Data"].toString();
+                newTabptr->addNewCell(cellText);
+//                qDebug()<<cellData;
+            }
+
+
+        }
+    }
+
+//    for(int i=0;i<json["Total Tabs"].toInt();i++){
+//        QString tabName = json["Data"]
+//    }
+
+    return true;
+}
+
 void CopyPaste::on_actionSave_triggered()
 {
 //    QFile file("E:\Git\build-multiCopyPaste-Desktop_Qt_5_15_0_MinGW_64_bit-Debug\debug\test.json");
@@ -113,4 +153,19 @@ void CopyPaste::on_actionAbout_triggered()
     AboutMeDialog aboutMe;
     aboutMe.show();
     aboutMe.exec();
+}
+
+void CopyPaste::on_actionLoad_triggered()
+{
+    QFile file("E:/Git/build-multiCopyPaste-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/debug/test.json");
+    if(!file.open(QFile::ReadOnly)){
+        qWarning("Couldn't open save file.");
+        return;
+    }
+
+    QByteArray saveData = file.readAll();
+    QJsonDocument loadDoc(QJsonDocument::fromJson(saveData));
+
+    readAllData(loadDoc.object());
+
 }
