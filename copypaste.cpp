@@ -25,6 +25,7 @@ CopyPaste::~CopyPaste()
 void CopyPaste::on_tabWidget_tabCloseRequested(int index)
 {
     qDebug()<<"Removing tab of index:"<<index;
+    allTabPtr[index]->close();
     ui->tabWidget->removeTab(index);
 
     allTabPtr.remove(index);
@@ -137,6 +138,9 @@ void CopyPaste::on_actionSave_triggered()
 
 void CopyPaste::on_actionExit_triggered()
 {
+    for (int i=0;i<allTabPtr.length() ;i++ ) {
+        allTabPtr[i]->close();
+    }
     QApplication::exit();
 }
 
