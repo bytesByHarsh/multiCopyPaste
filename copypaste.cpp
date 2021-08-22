@@ -117,13 +117,9 @@ bool CopyPaste::readAllData(const QJsonObject &json)
 
 void CopyPaste::on_actionSave_triggered()
 {
-//    QFile file("E:\Git\build-multiCopyPaste-Desktop_Qt_5_15_0_MinGW_64_bit-Debug\debug\test.json");
-//    file.open(QIODevice::ReadOnly | QIODevice::Text);
-//    QJsonParseError JsonParseError;
-//    QJsonDocument JsonDocument = QJsonDocument::fromJson(file.readAll(), &JsonParseError);
-//    file.close();
-
-    QFile file("E:/Git/build-multiCopyPaste-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/debug/test.json");
+    QString fileName = QFileDialog::getSaveFileName(this,"Save JSON File",QDir::currentPath());
+//    qDebug()<<fileName;
+    QFile file(fileName);
     if(!file.open(QFile::WriteOnly)){
         qWarning("Couldn't open save file.");
         return;
