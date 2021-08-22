@@ -14,20 +14,21 @@ TabNew::~TabNew()
     delete ui;
 }
 
-void TabNew::on_addButton_clicked()
+void TabNew::addNewCell(QString cellText)
 {
-//    CopyPasteCell *test = new CopyPasteCell(this);
-
-//    test->show();
-
     CopyPasteCell *newCell = new CopyPasteCell(this);
     ui->cellLayout->addWidget(newCell,cellNumerTotal,0);
     connect(newCell,SIGNAL(closeThisCell(int)),this,SLOT(closeCell(int)));
     newCell->setAttribute(Qt::WA_DeleteOnClose,true);
     newCell->cellNumber = cellNumerTotal;
+    newCell->setTextData(cellText);
     allCellPtr.append(newCell);
     cellNumerTotal++;
+}
 
+void TabNew::on_addButton_clicked()
+{
+    addNewCell();
 }
 
 void TabNew::closeCell(int index)
