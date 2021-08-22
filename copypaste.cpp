@@ -118,8 +118,12 @@ bool CopyPaste::readAllData(const QJsonObject &json)
 
 void CopyPaste::on_actionSave_triggered()
 {
-    QString fileName = QFileDialog::getSaveFileName(this,"Save JSON File",QDir::currentPath());
+    QString filter = "JSON File (*.json)";
+    QString fileName = QFileDialog::getSaveFileName(this,"Save JSON File",QDir::currentPath(),filter);
 //    qDebug()<<fileName;
+    if(fileName.isEmpty()){
+        return;
+    }
     QFile file(fileName);
     if(!file.open(QFile::WriteOnly)){
         qWarning("Couldn't open save file.");
@@ -153,8 +157,12 @@ void CopyPaste::on_actionAbout_triggered()
 
 void CopyPaste::on_actionLoad_triggered()
 {
-    QString fileName = QFileDialog::getOpenFileName(this,"Open JSON File",QDir::currentPath());
+    QString filter = "JSON File (*.json)";
+    QString fileName = QFileDialog::getOpenFileName(this,"Open JSON File",QDir::currentPath(),filter);
 //    qDebug()<<fileName;
+    if(fileName.isEmpty()){
+        return;
+    }
     QFile file(fileName);
     if(!file.open(QFile::ReadOnly)){
         qWarning("Couldn't open save file.");
