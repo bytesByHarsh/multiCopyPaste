@@ -112,10 +112,6 @@ bool CopyPaste::readAllData(const QJsonObject &json)
         }
     }
 
-//    for(int i=0;i<json["Total Tabs"].toInt();i++){
-//        QString tabName = json["Data"]
-//    }
-
     return true;
 }
 
@@ -162,10 +158,14 @@ void CopyPaste::on_actionLoad_triggered()
         qWarning("Couldn't open save file.");
         return;
     }
-
+    QJsonParseError JsonParseError;
     QByteArray saveData = file.readAll();
-    QJsonDocument loadDoc(QJsonDocument::fromJson(saveData));
-
+    QJsonDocument loadDoc(QJsonDocument::fromJson(saveData, &JsonParseError));
+    if(JsonParseError.error != QJsonParseError::NoError){
+            qDebug()<< "Parse Error"<< JsonParseError.errorString();
+            QMessageBox::warning(this,"Load JSON File","Please check the JSON file, there are some issues in it");
+            return;
+    }
     readAllData(loadDoc.object());
 
 }
