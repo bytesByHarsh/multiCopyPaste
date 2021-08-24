@@ -12,6 +12,7 @@ CopyPasteCell::CopyPasteCell(QWidget *parent) :
     ui->copyButton->setIcon(QIcon(":/img/img/copy.png"));
     ui->deleteButton->setIcon(QIcon(":/img/img/clear.png"));
     ui->clearButton->setIcon(QIcon(":/img/img/eraser.png"));
+    ui->editLabelButton->setIcon(QIcon(":/img/img/edit.png"));
 
     ui->pasteButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     ui->copyButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);

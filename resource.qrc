@@ -8,5 +8,6 @@
         <file>img/open.png</file>
         <file>img/save.png</file>
         <file>img/harsh_s.jpg</file>
+        <file>img/edit.png</file>
     </qresource>
 </RCC>
