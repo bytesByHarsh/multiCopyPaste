@@ -9,16 +9,22 @@ CopyPaste::CopyPaste(QWidget *parent)
     ui->setupUi(this);
     this->setWindowTitle("Multi Copy Paste");
     this->setWindowIcon(QIcon(":/img/img/paste.png"));
-    TabNew *newTabptr=new TabNew(this);
-    ui->tabWidget->addTab(newTabptr, "Default");
-    newTabptr->setAttribute(Qt::WA_DeleteOnClose,true);
-    allTabPtr.append(newTabptr);
+
+    addNewTab("Default");
 
 }
 
 CopyPaste::~CopyPaste()
 {
     delete ui;
+}
+
+void CopyPaste::addNewTab(QString tabName)
+{
+    TabNew *newTabptr=new TabNew(this);
+    ui->tabWidget->addTab(newTabptr, tabName);
+    newTabptr->setAttribute(Qt::WA_DeleteOnClose,true);
+    allTabPtr.append(newTabptr);
 }
 
 
@@ -39,11 +45,8 @@ void CopyPaste::on_tabWidget_tabCloseRequested(int index)
 
 void CopyPaste::on_newTabButton_clicked()
 {
-    TabNew *newTabptr=new TabNew(this);
 
-    ui->tabWidget->addTab(newTabptr, QString("Tab %0").arg(ui->tabWidget->count()+1));
-    newTabptr->setAttribute(Qt::WA_DeleteOnClose,true);
-    allTabPtr.append(newTabptr);
+    addNewTab(QString("Tab %0").arg(ui->tabWidget->count()+1));
 }
 
 void CopyPaste::on_tabWidget_tabBarDoubleClicked(int index)

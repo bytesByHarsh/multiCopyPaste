@@ -34,6 +34,7 @@ public:
     ~CopyPaste();
     NewTabDialog *newWindow;
     QVector<TabNew *> allTabPtr;
+    void addNewTab(QString tabName);
 
 
 private slots:
