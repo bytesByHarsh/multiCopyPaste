@@ -5,6 +5,7 @@
 #include <QClipboard>
 #include <QStatusBar>
 #include <QString>
+#include <QMessageBox>
 
 namespace Ui {
 class CopyPasteCell;

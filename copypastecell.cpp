@@ -69,7 +69,10 @@ void CopyPasteCell::on_clearButton_clicked()
 
 void CopyPasteCell::on_deleteButton_clicked()
 {
-    emit closeThisCell(cellNumber);
-
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "Delete Confirmation", "Delete This Cell?",QMessageBox::Yes|QMessageBox::No);
+    if (reply == QMessageBox::Yes){
+        emit closeThisCell(cellNumber);
+    }
 //    this->close();
 }
