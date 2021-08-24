@@ -69,7 +69,7 @@ bool CopyPaste::writeAllData(QJsonObject &json){
         for (int j=0;j<allTabPtr[i]->allCellPtr.length() ;j++ ) {
             QJsonObject cellData;
             cellData["Text Data"] = allTabPtr[i]->allCellPtr[j]->getTextData();
-
+            cellData["Cell Name"] = allTabPtr[i]->allCellPtr[j]->getCellName();
             allCelldData.append(cellData);
         }
         tabDataJSON["Tab Name"] = ui->tabWidget->tabText(i);

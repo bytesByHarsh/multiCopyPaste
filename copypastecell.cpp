@@ -32,6 +32,11 @@ QString CopyPasteCell::getTextData()
     return ui->textEdit->toPlainText();
 }
 
+QString CopyPasteCell::getCellName()
+{
+    return ui->cellLabel->text();
+}
+
 void CopyPasteCell::setTextData(QString cellText)
 {
     ui->textEdit->clear();
