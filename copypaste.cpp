@@ -24,11 +24,16 @@ CopyPaste::~CopyPaste()
 
 void CopyPaste::on_tabWidget_tabCloseRequested(int index)
 {
-    qDebug()<<"Removing tab of index:"<<index;
-    allTabPtr[index]->close();
-    ui->tabWidget->removeTab(index);
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "Delete Confirmation", "Delete This Tab?",QMessageBox::Yes|QMessageBox::No);
+    if (reply == QMessageBox::Yes){
+        qDebug()<<"Removing tab of index:"<<index;
+        allTabPtr[index]->close();
+        ui->tabWidget->removeTab(index);
 
-    allTabPtr.remove(index);
+        allTabPtr.remove(index);
+    }
+
 }
 
 
