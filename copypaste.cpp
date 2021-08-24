@@ -40,6 +40,11 @@ void CopyPaste::on_tabWidget_tabCloseRequested(int index)
         allTabPtr.remove(index);
     }
 
+    if(allTabPtr.length()==0){
+        addNewTab("Default");
+        ui->statusbar->showMessage("Added Default Tab",3000);
+    }
+
 }
 
 
