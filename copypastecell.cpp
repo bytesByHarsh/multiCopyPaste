@@ -77,3 +77,16 @@ void CopyPasteCell::on_deleteButton_clicked()
     }
 //    this->close();
 }
+
+void CopyPasteCell::on_editLabelButton_clicked()
+{
+    newWindow = new NewTabDialog(this);
+    newWindow->setText("Cell Name:");
+    connect(newWindow,SIGNAL(newTabName(QString)),this,SLOT(recievedNewTabName(QString)));
+    newWindow->show();
+}
+
+void CopyPasteCell::recievedNewTabName(QString data)
+{
+    ui->cellLabel->setText(data);
+}

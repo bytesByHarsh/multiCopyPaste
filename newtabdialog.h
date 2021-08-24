@@ -19,6 +19,7 @@ public:
     ~NewTabDialog();
     bool eventFilter(QObject *object, QEvent *event);
     void _handleWhatsThisEntry(QWidget * /*sender*/);
+    void setText(QString data);
 
 private slots:
     void on_okButton_clicked();

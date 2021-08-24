@@ -7,6 +7,8 @@
 #include <QString>
 #include <QMessageBox>
 
+#include "newtabdialog.h"
+
 namespace Ui {
 class CopyPasteCell;
 }
@@ -31,12 +33,16 @@ private slots:
 
     void on_deleteButton_clicked();
 
+    void on_editLabelButton_clicked();
+
 private:
     Ui::CopyPasteCell *ui;
+    NewTabDialog *newWindow;
 
 signals:
     void closeThisCell(int);
-
+public slots:
+    void recievedNewTabName(QString);
 };
 
 #endif // COPYPASTECELL_H

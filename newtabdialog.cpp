@@ -31,6 +31,11 @@ void NewTabDialog::_handleWhatsThisEntry(QWidget * /*sender*/) {
     QMessageBox::about(this,tr("What is this?"),tr("If you want to change the name of the tab then enter new name and press 'OK', else click 'Cancel'"));
 }
 
+void NewTabDialog::setText(QString data)
+{
+    ui->newTabLabel->setText(data);
+}
+
 void NewTabDialog::on_okButton_clicked()
 {
     QString tabName = ui->newTabText->toPlainText();
