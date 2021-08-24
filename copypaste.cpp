@@ -105,7 +105,8 @@ bool CopyPaste::readAllData(const QJsonObject &json)
             for (int cellIndex=0;cellIndex<allCelldData.size() ;cellIndex++ ) {
                 QJsonObject cellData = allCelldData[cellIndex].toObject();
                 QString cellText = cellData["Text Data"].toString();
-                newTabptr->addNewCell(cellText);
+                QString cellName = cellData["Cell Name"].toString();
+                newTabptr->addNewCell(cellText,cellName);
 //                qDebug()<<cellData;
             }
 

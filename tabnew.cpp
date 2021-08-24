@@ -14,7 +14,7 @@ TabNew::~TabNew()
     delete ui;
 }
 
-void TabNew::addNewCell(QString cellText)
+void TabNew::addNewCell(QString cellText,QString cellName)
 {
     CopyPasteCell *newCell = new CopyPasteCell(this);
     ui->cellLayout->addWidget(newCell,cellNumerTotal,0);
@@ -22,6 +22,7 @@ void TabNew::addNewCell(QString cellText)
     newCell->setAttribute(Qt::WA_DeleteOnClose,true);
     newCell->cellNumber = cellNumerTotal;
     newCell->setTextData(cellText);
+    newCell->setCellName(cellName);
     allCellPtr.append(newCell);
     cellNumerTotal++;
 }

@@ -24,6 +24,7 @@ public:
     QString getTextData();
     QString getCellName();
     void setTextData(QString cellText);
+    void setCellName(QString cellName);
 
 private slots:
     void on_pasteButton_clicked();

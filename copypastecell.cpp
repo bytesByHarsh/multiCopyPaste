@@ -43,6 +43,11 @@ void CopyPasteCell::setTextData(QString cellText)
     ui->textEdit->insertPlainText(cellText);
 }
 
+void CopyPasteCell::setCellName(QString cellName)
+{
+    ui->cellLabel->setText(cellName);
+}
+
 void CopyPasteCell::on_pasteButton_clicked()
 {
     QClipboard *clipboard = QApplication::clipboard();
