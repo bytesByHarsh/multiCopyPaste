@@ -14,6 +14,8 @@
 #include <QJsonParseError>
 #include <QFileDialog>
 #include <QDir>
+#include <QUrl>
+#include <QDesktopServices>
 
 #include "newtabdialog.h"
 #include "tabnew.h"
@@ -48,6 +50,8 @@ private slots:
     void on_actionAbout_triggered();
 
     void on_actionLoad_triggered();
+
+    void on_actionFAQ_triggered();
 
 private:
     Ui::CopyPaste *ui;

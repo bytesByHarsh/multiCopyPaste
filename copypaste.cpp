@@ -179,3 +179,8 @@ void CopyPaste::on_actionLoad_triggered()
     readAllData(loadDoc.object());
 
 }
+
+void CopyPaste::on_actionFAQ_triggered()
+{
+    QDesktopServices::openUrl(QUrl("http://www.harshmittal.tech", QUrl::TolerantMode));
+}
