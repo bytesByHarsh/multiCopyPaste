@@ -21,6 +21,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="addButton">
+       <property name="statusTip">
+        <string>Click here to add new Cell</string>
+       </property>
        <property name="text">
         <string>Add New</string>
        </property>
