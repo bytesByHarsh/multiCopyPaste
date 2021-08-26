@@ -8,6 +8,9 @@ CONFIG += c++11
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+INCLUDEPATH += include/
+VPATH += src/
+
 SOURCES += \
     aboutmedialog.cpp \
     copypastecell.cpp \
@@ -17,18 +20,18 @@ SOURCES += \
     tabnew.cpp
 
 HEADERS += \
-    aboutmedialog.h \
-    copypaste.h \
-    copypastecell.h \
-    newtabdialog.h \
-    tabnew.h
+    include/aboutmedialog.h \
+    include/copypaste.h \
+    include/copypastecell.h \
+    include/newtabdialog.h \
+    include/tabnew.h
 
 FORMS += \
-    aboutmedialog.ui \
-    copypaste.ui \
-    copypastecell.ui \
-    newtabdialog.ui \
-    tabnew.ui
+    ui/aboutmedialog.ui \
+    ui/copypaste.ui \
+    ui/copypastecell.ui \
+    ui/newtabdialog.ui \
+    ui/tabnew.ui
 
 RC_ICONS = img/paste.ico
 
