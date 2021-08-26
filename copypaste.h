@@ -35,6 +35,7 @@ public:
     NewTabDialog *newWindow;
     QVector<TabNew *> allTabPtr;
     void addNewTab(QString tabName);
+    void openJSONFile(QString fileName);
 
 
 private slots:
@@ -53,6 +54,20 @@ private slots:
     void on_actionLoad_triggered();
 
     void on_actionFAQ_triggered();
+
+    void on_actionC_triggered();
+
+    void on_actionC_2_triggered();
+
+    void on_actionPython_triggered();
+
+    void on_actionJava_triggered();
+
+    void on_actionHTML_triggered();
+
+    void on_actionPersonel_Info_triggered();
+
+    void on_actionDocuments_triggered();
 
 private:
     Ui::CopyPaste *ui;

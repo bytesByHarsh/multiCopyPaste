@@ -27,6 +27,26 @@ void CopyPaste::addNewTab(QString tabName)
     allTabPtr.append(newTabptr);
 }
 
+void CopyPaste::openJSONFile(QString fileName)
+{
+    QFile file(fileName);
+    if(!file.open(QFile::ReadOnly)){
+        qWarning("Couldn't open save file.");
+        QMessageBox::warning(this,"Load JSON File","Not able to open the JSON File");
+
+        return;
+    }
+    QJsonParseError JsonParseError;
+    QByteArray saveData = file.readAll();
+    QJsonDocument loadDoc(QJsonDocument::fromJson(saveData, &JsonParseError));
+    if(JsonParseError.error != QJsonParseError::NoError){
+            qDebug()<< "Parse Error"<< JsonParseError.errorString();
+            QMessageBox::warning(this,"Load JSON File","Please check the JSON file, there are some issues in it");
+            return;
+    }
+    readAllData(loadDoc.object());
+}
+
 
 void CopyPaste::on_tabWidget_tabCloseRequested(int index)
 {
@@ -177,24 +197,46 @@ void CopyPaste::on_actionLoad_triggered()
     if(fileName.isEmpty()){
         return;
     }
-    QFile file(fileName);
-    if(!file.open(QFile::ReadOnly)){
-        qWarning("Couldn't open save file.");
-        return;
-    }
-    QJsonParseError JsonParseError;
-    QByteArray saveData = file.readAll();
-    QJsonDocument loadDoc(QJsonDocument::fromJson(saveData, &JsonParseError));
-    if(JsonParseError.error != QJsonParseError::NoError){
-            qDebug()<< "Parse Error"<< JsonParseError.errorString();
-            QMessageBox::warning(this,"Load JSON File","Please check the JSON file, there are some issues in it");
-            return;
-    }
-    readAllData(loadDoc.object());
+    openJSONFile(fileName);
 
 }
 
 void CopyPaste::on_actionFAQ_triggered()
 {
     QDesktopServices::openUrl(QUrl("http://www.harshmittal.tech", QUrl::TolerantMode));
+}
+
+void CopyPaste::on_actionC_triggered()
+{
+    openJSONFile(":/json/examples/coding/c.json");
+}
+
+void CopyPaste::on_actionC_2_triggered()
+{
+    openJSONFile(":/json/examples/coding/cpp.json");
+}
+
+void CopyPaste::on_actionPython_triggered()
+{
+    openJSONFile(":/json/examples/coding/python.json");
+}
+
+void CopyPaste::on_actionJava_triggered()
+{
+    openJSONFile(":/json/examples/coding/java.json");
+}
+
+void CopyPaste::on_actionHTML_triggered()
+{
+    openJSONFile(":/json/examples/coding/html.json");
+}
+
+void CopyPaste::on_actionPersonel_Info_triggered()
+{
+    openJSONFile(":/json/examples/info.json");
+}
+
+void CopyPaste::on_actionDocuments_triggered()
+{
+    openJSONFile(":/json/examples/doc.json");
 }
