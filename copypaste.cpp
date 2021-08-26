@@ -203,7 +203,7 @@ void CopyPaste::on_actionLoad_triggered()
 
 void CopyPaste::on_actionFAQ_triggered()
 {
-    QDesktopServices::openUrl(QUrl("http://www.harshmittal.tech", QUrl::TolerantMode));
+    QDesktopServices::openUrl(QUrl("https://harshmittal2210.github.io/blog/Qt/multiCopyPaste", QUrl::TolerantMode));
 }
 
 void CopyPaste::on_actionC_triggered()
