@@ -54,8 +54,28 @@
     <property name="title">
      <string>File</string>
     </property>
+    <widget class="QMenu" name="menuExamples">
+     <property name="title">
+      <string>Examples</string>
+     </property>
+     <widget class="QMenu" name="menuCoding">
+      <property name="title">
+       <string>Coding</string>
+      </property>
+      <addaction name="actionC"/>
+      <addaction name="actionC_2"/>
+      <addaction name="actionPython"/>
+      <addaction name="actionJava"/>
+      <addaction name="actionHTML"/>
+     </widget>
+     <addaction name="actionPersonel_Info"/>
+     <addaction name="actionDocuments"/>
+     <addaction name="menuCoding"/>
+    </widget>
     <addaction name="actionLoad"/>
     <addaction name="actionSave"/>
+    <addaction name="separator"/>
+    <addaction name="menuExamples"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
@@ -114,6 +134,41 @@
   <action name="actionFAQ">
    <property name="text">
     <string>FAQ</string>
+   </property>
+  </action>
+  <action name="actionPersonel_Info">
+   <property name="text">
+    <string>Personal Info</string>
+   </property>
+  </action>
+  <action name="actionDocuments">
+   <property name="text">
+    <string>Documents</string>
+   </property>
+  </action>
+  <action name="actionC">
+   <property name="text">
+    <string>C</string>
+   </property>
+  </action>
+  <action name="actionC_2">
+   <property name="text">
+    <string>C++</string>
+   </property>
+  </action>
+  <action name="actionPython">
+   <property name="text">
+    <string>Python</string>
+   </property>
+  </action>
+  <action name="actionJava">
+   <property name="text">
+    <string>Java</string>
+   </property>
+  </action>
+  <action name="actionHTML">
+   <property name="text">
+    <string>HTML</string>
    </property>
   </action>
  </widget>

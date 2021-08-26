@@ -1,0 +1,24 @@
+{
+    "Author Name": "Harsh Mittal",
+    "Data": [
+        {
+            "Tab Data": [
+                {
+                    "Cell Name": "Hello World",
+                    "Text Data": "#include <stdio.h>\nint main() {\n   // printf() displays the string inside quotation\n   printf(\"Hello, World!\");\n   return 0;\n}\n"
+                },
+                {
+                    "Cell Name": "Compilation",
+                    "Text Data": "gcc test.cpp -o test"
+                },
+                {
+                    "Cell Name": "Common Libraries",
+                    "Text Data": "#include <stdio.h>\n#include <string.h>\n#include <math.h>\n#include <time.h>"
+                }
+            ],
+            "Tab Name": "Basic (C)",
+            "Total Cells": 3
+        }
+    ],
+    "Total Tabs": 1
+}

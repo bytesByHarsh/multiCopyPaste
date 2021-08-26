@@ -1,0 +1,42 @@
+{
+    "Author Name": "Harsh Mittal",
+    "Data": [
+        {
+            "Tab Data": [
+                {
+                    "Cell Name": "Hello World",
+                    "Text Data": "print(\"Hello World\")"
+                },
+                {
+                    "Cell Name": "Compilation",
+                    "Text Data": "python test.py"
+                },
+                {
+                    "Cell Name": "Sample Code",
+                    "Text Data": "def main():\n\tpass\nif __name__ == \"__main__\":\n\tmain()"
+                }
+            ],
+            "Tab Name": "Basic (Python)",
+            "Total Cells": 3
+        },
+        {
+            "Tab Data": [
+                {
+                    "Cell Name": "Open Image",
+                    "Text Data": "# Python program to explain cv2.imshow() method\n\n# importing cv2\nimport cv2\n\n# path\npath = r'C:\\Users\\Harsh\\Desktop\\test.png'\n\n# Reading an image in default mode\nimage = cv2.imread(path)\n\n# Window name in which image is displayed\nwindow_name = 'image'\n\n# Using cv2.imshow() method\n# Displaying the image\ncv2.imshow(window_name, image)\n\n#waits for user to press any key\n#(this is necessary to avoid Python kernel form crashing)\ncv2.waitKey(0)\n\n#closing all open windows\ncv2.destroyAllWindows()\n"
+                },
+                {
+                    "Cell Name": "Open Video",
+                    "Text Data": "# importing libraries\nimport cv2\nimport numpy as np\n\n# Create a VideoCapture object and read from input file\ncap = cv2.VideoCapture('tree.mp4')\n\n# Check if camera opened successfully\nif (cap.isOpened()== False):\nprint(\"Error opening video file\")\n\n# Read until video is completed\nwhile(cap.isOpened()):\n\t\n# Capture frame-by-frame\nret, frame = cap.read()\nif ret == True:\n\n\t# Display the resulting frame\n\tcv2.imshow('Frame', frame)\n\n\t# Press Q on keyboard to exit\n\tif cv2.waitKey(25) & 0xFF == ord('q'):\n\tbreak\n\n# Break the loop\nelse:\n\tbreak\n\n# When everything done, release\n# the video capture object\ncap.release()\n\n# Closes all the frames\ncv2.destroyAllWindows()\n"
+                },
+                {
+                    "Cell Name": "Webcam Video Capture",
+                    "Text Data": "# import the opencv library\nimport cv2\n\n# define a video capture object\nvid = cv2.VideoCapture(0)\n\nwhile(True):\n\t\n\t# Capture the video frame\n\t# by frame\n\tret, frame = vid.read()\n\n\t# Display the resulting frame\n\tcv2.imshow('frame', frame)\n\t\n\t# the 'q' button is set as the\n\t# quitting button you may use any\n\t# desired button of your choice\n\tif cv2.waitKey(1) & 0xFF == ord('q'):\n\t\tbreak\n\n# After the loop release the cap object\nvid.release()\n# Destroy all the windows\ncv2.destroyAllWindows()\n"
+                }
+            ],
+            "Tab Name": "OpenCV",
+            "Total Cells": 3
+        }
+    ],
+    "Total Tabs": 2
+}

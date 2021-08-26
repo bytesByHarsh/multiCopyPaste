@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/json">
+        <file>examples/doc.json</file>
+        <file>examples/info.json</file>
+        <file>examples/coding/c.json</file>
+        <file>examples/coding/cpp.json</file>
+        <file>examples/coding/html.json</file>
+        <file>examples/coding/java.json</file>
+        <file>examples/coding/python.json</file>
+    </qresource>
+</RCC>
